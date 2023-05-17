@@ -7,23 +7,23 @@ using namespace std;
 
 class Person {
 private:
-    string first_name;
-    string last_name;
+    string _first_name;
+    string _last_name;
 
 public:
     Person() {}
-    Person(string firstName, string lastName) : first_name(firstName), last_name(lastName) {}
+    Person(string firstName, string lastName) : _first_name(firstName), _last_name(lastName) {}
 
     string GetFirstName() {
-        return first_name;
+        return _first_name;
     }
 
     string GetLastName() {
-        return last_name;
+        return _last_name;
     }
 
     string GetFullName() {
-        return last_name + " " + first_name;
+        return _last_name + " " + _first_name;
     }
 };
 

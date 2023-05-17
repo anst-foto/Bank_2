@@ -11,53 +11,53 @@ enum StatusType {
 
 class Account {
 private:
-    int id;
-    Person* owner;
-    double balance;
-    StatusType status;
+    int _id;
+    Person* _owner;
+    double _balance;
+    StatusType _status;
 
 public:
-    Account(Person *owner, double balance = 0) : owner(owner), balance(balance) {
-        id = 0 + rand() % 10000;
-        status = StatusType::Actived;
+    Account(Person *owner, double balance = 0) : _owner(owner), _balance(balance) {
+        _id = 0 + rand() % 10000;
+        _status = StatusType::Actived;
     }
 
     bool Deposit(double money) {
-        if (status == StatusType::Arrested || status == StatusType::Closed) return false;
+        if (_status == StatusType::Arrested || _status == StatusType::Closed) return false;
         if (money < 0) return false;
-        balance += money;
+        _balance += money;
         return true;
     }
 
     bool Withdraw(double money) {
-        if (status == StatusType::Arrested || status == StatusType::Closed) return false;
+        if (_status == StatusType::Arrested || _status == StatusType::Closed) return false;
         if (money < 0) return false;
-        if (money > balance) return false;
-        balance -= money;
+        if (money > _balance) return false;
+        _balance -= money;
         return true;
     }
 
     bool Close() {
-        if (status == StatusType::Arrested || status == StatusType::Closed) return false;
-        if (balance > 0) return false;
-        status = StatusType::Closed;
+        if (_status == StatusType::Arrested || _status == StatusType::Closed) return false;
+        if (_balance > 0) return false;
+        _status = StatusType::Closed;
         return true;
     }
 
     int GetId() {
-        return id;
+        return _id;
     }
 
     Person *GetOwner() {
-        return owner;
+        return _owner;
     }
 
     double GetBalance() {
-        return balance;
+        return _balance;
     }
 
     StatusType GetStatus() {
-        return status;
+        return _status;
     }
 };
 

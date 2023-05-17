@@ -3,4 +3,4 @@ project(Bank_2)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Bank_2 main.cpp Account.h Person.h)
+add_executable(Bank_2 main.cpp Account.h Person.h Bank.h FileHelper.h)
